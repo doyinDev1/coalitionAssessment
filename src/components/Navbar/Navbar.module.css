@@ -1,0 +1,91 @@
+.navBar {
+  height: 72px;
+  /* UI Properties */
+  background-color: #ffffff !important;
+  border-radius: 50px;
+  /* opacity: 1; */
+  margin: 18px 18px 32px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: repeat(12, 1fr);
+}
+.logo {
+  margin-left: 32px;
+}
+.logo svg {
+  background: white;
+  margin-bottom: -5px;
+  padding-bottom: 5px;
+}
+.navlinks ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background-color: #ffffff;
+}
+.navlinks li {
+  background-color: #ffffff;
+  display: flex;
+  gap: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.navlinks svg {
+  background: transparent;
+}
+.activelink {
+  border-radius: 41px;
+  background-color: #01f0d0 !important;
+  padding: 11px 16px;
+}
+.profile {
+  margin-right: 32px;
+}
+
+.profileWrap {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+  gap: 8px;
+}
+.profileWrapped {
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+  flex-direction: column;
+  margin-right: 9px;
+}
+.profileWrap img {
+  max-width: 44px;
+  max-height: 44px;
+  background: transparent;
+}
+.profileWrap h1 {
+  font-size: 14px;
+  background-color: #fff;
+  text-align: left;
+}
+.profileWrap h2 {
+  color: #707070;
+  font-weight: 300px;
+  font-size: 14px;
+  background-color: #fff;
+}
+.profileRight {
+  border-left: 1px solid grey;
+  padding-left: 9px;
+  display: flex;
+  gap: 20px;
+  background-color: #fff;
+}
+.profileRight img {
+  max-width: 24px;
+  max-height: 20px;
+}
