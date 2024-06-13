@@ -1,0 +1,78 @@
+.content {
+  display: flex;
+  flex: 1;
+  gap: 32px;
+  padding: 0px 18px;
+}
+.left {
+  flex: 0.25;
+  background-color: #fff;
+  border-radius: 12px;
+  height: 100vh;
+  /* overflow: scroll; */
+  padding: 20px;
+}
+.mid {
+  flex: 0.5;
+  background-color: #fff;
+  border-radius: 12px;
+  height: 100vh;
+  /* overflow: scroll; */
+}
+.right {
+  flex: 0.25;
+  background-color: #fff;
+  border-radius: 12px;
+  height: 100vh;
+  /* overflow: scroll; */
+}
+
+.leftTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.leftTop h1 {
+  font-size: 24px;
+}
+.leftTop img {
+  max-width: 24px;
+}
+.leftMain {
+  display: flex;
+  flex-direction: column;
+}
+.MainWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+
+.MainWrap .optionsHorizon {
+  max-width: 24px;
+}
+.userMain {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.userMain img {
+  max-width: 50px;
+  max-height: 50px;
+}
+.users {
+  display: flex;
+  flex-direction: column;
+}
+.users h1 {
+  font-size: 14px;
+}
+
+.users h2 {
+  color: #707070;
+  font-size: 14px;
+}
