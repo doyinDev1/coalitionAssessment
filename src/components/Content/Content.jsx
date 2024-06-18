@@ -9,9 +9,53 @@ import download from '../../assets/download.png'
 import respiratory from '../../assets/respiratory.png'
 import temperature from '../../assets/temperature.png'
 import heart from '../../assets/Heart.png'
-import {ReactComponent as ArrowDown} from '../../assets/ArrowDown.svg'
-import {ReactComponent as ArrowUp} from '../../assets/ArrowUp.svg'
+import { ReactComponent as Expand } from '../../assets/expand.svg'
+import { ReactComponent as ArrowUp } from '../../assets/ArrowUp.svg'
+import { ReactComponent as ArrowDown } from '../../assets/ArrowDown.svg'
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+
+
 const Content = () => {
+
+
+    const data = [
+        {
+            name: 'Oct, 2023',
+            systolic: 400,
+            diastolic: 240,
+            amt: 240,
+        },
+        {
+            name: 'Nov, 2023',
+            systolic: 300,
+            diastolic: 139,
+            amt: 221,
+        },
+        {
+            name: 'Dec, 2023',
+            systolic: 200,
+            diastolic: 480,
+            amt: 229,
+        },
+        {
+            name: 'Jan, 2024',
+            systolic: 278,
+            diastolic: 390,
+            amt: 200,
+        },
+        {
+            name: 'Feb, 2024',
+            systolic: 189,
+            diastolic: 480,
+            amt: 218,
+        },
+        {
+            name: 'Mar, 2024',
+            systolic: 239,
+            diastolic: 380,
+            amt: 250,
+        },
+    ];
     return (
         <div className={classes.content}>
             <div className={classes.left}>
@@ -231,6 +275,51 @@ const Content = () => {
                     <h1 className={classes.midTopText}>
                         Diagnosis History
                     </h1>
+                    <div className={classes.chartMain}>
+                        <div className={classes.chart}>
+                            <div className={classes.chartTitle}>
+                                <h1>Blood Tests</h1>
+                                <div className={classes.chartdate}>
+                                    <h2>Last 6 months</h2>
+                                    <Expand />
+                                </div>
+
+                            </div>
+
+                            <LineChart width={450} height={270} data={data}
+                            // margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
+                            >
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="name" />
+                                <YAxis domain={[0, 500]}  />
+                                <Tooltip />
+                                {/* <Legend /> */}
+                                <Line type="monotone" dataKey="diastolic" stroke="#8C6FE6" />
+                                <Line type="monotone" dataKey="systolic" stroke="#E66FD2" />
+                            </LineChart>
+                        </div>
+                        <div className={classes.chartDetails}>
+                            <div className={classes.testResult}>
+                                <div style={{width: '14px', height: '14px', borderRadius: '50px', backgroundColor: '#E66FD2'}} />
+                                Systolic
+                            </div>
+                            <h1>160</h1>
+                            <div className={classes.rate}>
+                                <ArrowUp/>
+                                <h2>Higher than Normal</h2>
+                            </div>
+                            <hr className={classes.horizontalLine}/>
+                            <div className={classes.testResult}>
+                                <div style={{width: '14px', height: '14px', borderRadius: '50px', backgroundColor: '#8C6FE6'}} />
+                                Diastolic
+                            </div>
+                            <h1>78</h1>
+                            <div className={classes.rate}>
+                                <ArrowDown/>
+                                <h2>Lower than Average</h2>
+                            </div>
+                        </div>
+                    </div>
                     <div className={classes.historyBottom}>
                         <div className={classes.colouredCard} style={{ backgroundColor: '#E0F3FA' }}>
                             <img src={respiratory} alt='' />

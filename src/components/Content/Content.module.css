@@ -26,7 +26,7 @@
 .midTop {
   background-color: #fff;
   border-radius: 12px;
-  height: 80vh;
+  /* height: 80vh; */
   /* overflow: scroll; */
   padding: 20px;
 }
@@ -34,6 +34,77 @@
 .midTopText {
   font-size: 28px;
   font-weight: 800;
+}
+.chartMain {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #f4f0fe;
+  height: 400px;
+  border-radius: 12px;
+  margin: 40px 0px 20px 0px;
+  gap: 40px;
+}
+.chart {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.chartTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px 20px 16px;
+}
+.chartTitle h1 {
+  color: #072635;
+  font-size: 18px;
+}
+.chartTitle h2 {
+  color: #072635;
+  font-size: 14px;
+  font-weight: normal;
+}
+.chartdate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.chartDetails {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: flex;
+  flex-direction: column;
+  padding-right: 16px;
+}
+.chartDetails h1 {
+  color: #072635;
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+.rate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 16px;
+}
+.horizontalLine {
+  border: 1px solid #cbc8d4;
+}
+.chartDetails h2 {
+  color: #072635;
+  font-size: 14px;
+  font-weight: normal;
+}
+.testResult {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding-bottom: 8px;
+  padding-top: 16px;
 }
 
 .historyBottom {
