@@ -10,14 +10,15 @@ export const DataProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  let username = 'coalition';
-  let password = 'skills-test';
+  let username = process.env.REACT_APP_USERNAME;
+  let password = process.env.REACT_APP_PASSWORD;
   let auth = btoa(`${username}:${password}`);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://fedskillstest.coalitiontechnologies.workers.dev', {headers: {
+        const response = await axios.get('https://fedskillstest.coalitiontechnologies.workers.dev', {
+          headers: {
             'Authorization': `Basic ${auth}`
           }
         });

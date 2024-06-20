@@ -8,7 +8,8 @@
   flex: 0.25;
   background-color: #fff;
   border-radius: 12px;
-  /* height: 100vh; */
+  height: 100vh;
+  overflow-y: scroll;
   padding: 20px;
 }
 .mid {

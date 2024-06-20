@@ -21,21 +21,43 @@ import { DataContext } from '../../context/DataContext';
 
 const Content = () => {
 
-    const { data: patients, loading, error, findByName } = useContext(DataContext);
+    const { data: patients, findByName } = useContext(DataContext);
 
     const person = findByName('Jessica Taylor');
-    const diagnostic = person?.diagnosis_history?.[0]
+    const diagnostic = person?.diagnosis_history?.[4]
 
     // get data for chart 
-    const transformData = (data) => {
-        return data?.slice(5, -1)?.map(item => ({
+    const getMonthNumber = (monthName) => {
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        return months.indexOf(monthName) + 1;
+    };
+
+    const sortData = (data) => {
+        return data?.sort((a, b) => {
+            if (a.year !== b.year) {
+                return a.year - b.year;
+            }
+            return getMonthNumber(a.month) - getMonthNumber(b.month);
+        });
+    };
+
+    const sliceAndTransformData = (data) => {
+        // Sort data by year and month
+        const sortedData = sortData(data);
+        // Get the first three items
+        const slicedData = sortedData?.slice(0, -1);
+        return slicedData?.map(item => ({
             name: `${item.month}, ${item.year}`,
             systolic: item.blood_pressure.systolic.value,
             diastolic: item.blood_pressure.diastolic.value,
             amt: item.blood_pressure.systolic.value
         }));
     };
-    const transformedData = transformData(person?.diagnosis_history);
+
+    const transformedData = sliceAndTransformData(person?.diagnosis_history);
 
     return (
         <div className={classes.content}>
@@ -95,12 +117,11 @@ const Content = () => {
                                 </div>
 
                             </div>
-                            <LineChart width={550} height={270} data={transformedData}>
+                            <LineChart width={500} height={300} data={transformedData}>
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="name" />
                                 <YAxis domain={[0, 220]} />
                                 <Tooltip />
-                                {/* <Legend /> */}
                                 <Line type="monotone" dataKey="diastolic" stroke="#8C6FE6" />
                                 <Line type="monotone" dataKey="systolic" stroke="#E66FD2" />
                             </LineChart>
@@ -192,7 +213,6 @@ const Content = () => {
                     </div>
                 </div>
             </div>
-
             <div className={classes.right}>
                 <div className={classes.rightMain} >
                     <div className={classes.rightTop}>
@@ -248,7 +268,6 @@ const Content = () => {
                         </div>
                         <div className={classes.userInfo}>
                             <img src={insure} alt='' />
-
                             <div className={classes.userText}>
                                 <h1>
                                     Insurance Provider
