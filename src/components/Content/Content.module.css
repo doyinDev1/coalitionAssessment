@@ -8,16 +8,12 @@
   flex: 0.25;
   background-color: #fff;
   border-radius: 12px;
-  /* height: 100vh; */
+  height: 100vh;
+  overflow-y: scroll;
   padding: 20px;
 }
 .mid {
   flex: 0.5;
-  /* background-color: #fff; */
-  /* border-radius: 12px;
-  height: 100vh; */
-  /* overflow: scroll; */
-
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -26,8 +22,6 @@
 .midTop {
   background-color: #fff;
   border-radius: 12px;
-  /* height: 80vh; */
-  /* overflow: scroll; */
   padding: 20px;
 }
 
@@ -137,11 +131,15 @@
   font-size: 14px;
   font-weight: 800;
 }
+.ratingsArrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .midBottom {
   background-color: #fff;
   border-radius: 12px;
-  /* overflow-y: scroll; */
   padding: 0px 20px 20px 20px;
 }
 .bottomTable {
@@ -159,11 +157,8 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  /* display: table-row; */
-  /* display: table-row; */
 }
 tr:first-child {
-  /* display: none; */
   padding-bottom: 20px;
 }
 
@@ -180,7 +175,6 @@ th {
 th:first-child {
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
-  /* padding: 40px; */
 }
 
 th:last-child {
@@ -190,10 +184,6 @@ th:last-child {
 
 th {
   background-color: #f2f2f2;
-}
-
-tbody tr:nth-child(even) {
-  /* background-color: #f9f9f9; */
 }
 
 tbody tr:hover {
@@ -217,17 +207,16 @@ tbody tr:hover {
   display: flex;
   flex-direction: column;
 }
-.activePatient {
-  background-color: #d8fcf7;
-}
 
 .MainWrap {
-  /* overflow-y: scroll; */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding-bottom: 24px; */
   padding: 16px 20px;
+  cursor: pointer;
+}
+.MainWrap:hover {
+  background-color: #d8fcf7;
 }
 
 .MainWrap .optionsHorizon {
@@ -262,13 +251,10 @@ tbody tr:hover {
   display: flex;
   flex-direction: column;
   gap: 45px;
-  /* overflow: scroll; */
 }
 .rightMain {
   background-color: #fff;
   border-radius: 12px;
-  /* height: 80vh; */
-  /* overflow: scroll; */
   padding: 0px 20px 20px 20px;
 }
 .rightTop {
@@ -344,6 +330,10 @@ tbody tr:hover {
   justify-content: space-between;
   align-items: center;
   padding: 16px;
+  cursor: pointer;
+}
+.testCases:hover {
+  background-color: #f6f7f8;
 }
 .testCases h2 {
   color: #072635;
@@ -352,7 +342,4 @@ tbody tr:hover {
 .testCases img {
   max-width: 24px;
   max-height: 24px;
-}
-.active {
-  background-color: #f6f7f8;
 }
